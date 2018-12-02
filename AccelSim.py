@@ -2,11 +2,11 @@ from AccelSimConfig import *
 
 
 class AccelSim:
-    def __init__(self):
+    def __init__(self, initial_time):
         self.position = 0.0
         self.velocity = 0.0
         self.acceleration = 0.0
-        self.prev_time = 0.0
+        self.prev_time = initial_time
         self.run_time = 0.0
         return
 
@@ -26,4 +26,4 @@ class AccelSim:
         return
 
     def get_stripe_count(self):
-        return self.position / STRIPE_DISTANCE
+        return int(self.position / STRIPE_DISTANCE)
