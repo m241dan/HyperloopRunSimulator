@@ -20,14 +20,12 @@ def main(args):
     #     port = args[0]
     #     baud_rate = int(args[1])
 
-    sim = AccelSim.AccelSim()
+    sim = AccelSim.AccelSim(time.time())
     # ser = serial.Serial(port=port, baudrate=baud_rate)
 
-    sim.prev_time = time.time()
     while True:
         time.sleep(RUN_RATE)
-        present_time = time.time()
-        sim.update(present_time)
+        sim.update(time.time())
         print("Acceleration: " + str(sim.acceleration))
         print("Stripe Count: " + str(sim.get_stripe_count()))
         print("Velocity    : " + str(sim.velocity))
